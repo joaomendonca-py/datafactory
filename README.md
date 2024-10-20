@@ -1,10 +1,11 @@
-# Documentação do Projeto de Ingestão e Processamento de Dados - Brewery ETL
+# Documentação Completa do Projeto de Ingestão e Processamento de Dados - Brewery ETL
 
 ## Visão Geral do Projeto
 Este projeto visa implementar um pipeline de ETL (Extração, Transformação e Carregamento) para processar dados relacionados à empresa, utilizando as ferramentas do Azure como Databricks, Data Factory, e Azure Storage Account. Os dados são extraídos, transformados e armazenados em diferentes camadas (“bronze”, “silver” e “gold”), cada uma representando um estágio de maturidade no processamento dos dados.
 
 ## Arquitetura do Pipeline
 O pipeline foi construído utilizando:
+
 - **Azure Data Factory (ADF)** para orquestração das execuções dos notebooks Databricks.
 - **Azure Databricks** para implementar a lógica ETL.
 - **Azure Data Lake Storage (ADLS)** para armazenar os dados em diferentes camadas: “bronze”, “silver” e “gold”.
@@ -13,11 +14,13 @@ O pipeline é acionado pelo ADF, que executa notebooks Databricks que realizam a
 
 ## Configuração do Azure Data Lake Storage (ADLS)
 O **Brewery Data Lake** foi configurado com as seguintes camadas:
+
 - **Bronze**: Dados brutos extraídos da fonte sem manipulação ou tratamento.
 - **Silver**: Dados tratados e normalizados, com transformações de limpeza aplicadas.
 - **Gold**: Dados prontos para serem usados em análises e visualizações.
 
 A hierarquia do armazenamento foi configurada conforme mostrado abaixo:
+
 - Containers:
   - **bronze**
   - **silver**
@@ -28,24 +31,43 @@ A configuração do ADLS inclui performance padrão, replicação local e utiliz
 ## Azure Databricks
 ### Notebooks Utilizados
 No Azure Databricks, foram criados dois notebooks principais:
+
 1. **pipeline brewery**: Responsável pelo processamento ETL das camadas bronze, silver e gold.
 2. **Testes**: Utilizado para validação dos dados e execução de casos de teste para garantir a qualidade dos dados.
 
 Os dados de cada camada foram armazenados no schema “brewery”, com as seguintes tabelas:
+
 - **bronze_breweries**
 - **silver_breweries**
 - **gold_breweries**
 
 A configuração do Azure Databricks foi feita no recurso “pipelinedatabricks”.
 
+### Escolha do Azure Databricks com Delta Lake
+Optamos por utilizar o **Azure Databricks** em conjunto com o **Delta Lake** por diversos motivos relacionados à performance, confiabilidade e facilidade de manutenção dos dados. Especificamente, o **Delta Lake** foi escolhido por proporcionar:
+
+1. **Gerenciamento de Versão dos Dados (Time Travel)**: Isso possibilita rastrear mudanças e realizar auditorias, além de recuperar versões anteriores dos dados em caso de problemas ou análises retroativas.
+2. **Transações ACID**: As transações ACID garantem consistência durante as operações de leitura e escrita, eliminando riscos de problemas como leituras parciais ou inconsistências em cenários de processamento concorrente.
+3. **Processamento em Streaming e Batch**: O Delta Lake suporta ambos os modos de processamento, o que torna a solução flexível para futuros casos de uso que possam exigir ingestão de dados em tempo real.
+4. **Otimizações de Performance**: Utiliza índices otimizados e caching, o que reduz significativamente o tempo de resposta ao consultar os dados, especialmente nas camadas **silver** e **gold**.
+
 ## Configuração do Azure Data Factory (ADF)
 O **Azure Data Factory** foi utilizado para orquestrar o pipeline. Os principais elementos configurados foram:
+
 - **Pipeline para execução dos notebooks Databricks**.
 - **Triggers para execução automática do pipeline**, garantindo execuções periódicas e automatizadas.
 - **Alertas e métricas** para monitorar a execução do pipeline e notificar em caso de falhas. Os alertas foram configurados para enviar e-mails sempre que houver uma falha em um pipeline.
 
+### Integração com Azure Data Factory (ADF)
+O **Azure Data Factory** foi escolhido como orquestrador do pipeline para garantir a integração suave entre diferentes componentes do Azure e fornecer uma automação robusta do processo de ETL. Algumas das principais considerações para o uso do ADF incluem:
+
+1. **Fácil Integração com Databricks e ADLS**: A capacidade de executar notebooks do Azure Databricks diretamente do ADF facilitou a orquestração, tornando o fluxo de trabalho mais coeso.
+2. **Triggers Automatizados**: A configuração de triggers permitiu que o pipeline fosse executado automaticamente em intervalos definidos, sem a necessidade de intervenção manual, garantindo que os dados estejam sempre atualizados.
+3. **Monitoramento e Alertas**: O ADF possibilita a criação de alertas personalizados, o que é essencial para garantir que erros sejam identificados e corrigidos rapidamente.
+
 ## Monitoramento e Alertas
 No Azure Data Factory, foi implementado um sistema de **alertas e monitoramento** que abrange:
+
 - **Alertas para falhas no pipeline**: Configurado para disparar e-mails em caso de erro em qualquer etapa do pipeline.
 - **Métricas monitoradas**: Incluem a execução dos pipelines e atividades específicas, para garantir que falhas sejam detectadas e tratadas.
 
@@ -53,11 +75,18 @@ Os alertas incluem condições como “falha de execução de pipeline”, sever
 
 ## Testes e Validações
 O notebook **Testes** foi utilizado para realizar validações dos dados após o processamento:
+
 - **Testes unitários** para verificar se os dados foram carregados conforme esperado.
 - **Validação dos resultados** nas camadas bronze, silver e gold, garantindo a consistência dos dados entre as camadas.
 
 ## Considerações Finais
 Este projeto é um exemplo de como utilizar os recursos do Azure para criar um pipeline de dados escalável e automatizado, com foco em qualidade e monitoramento. Cada etapa foi cuidadosamente planejada para garantir a qualidade dos dados e a facilidade de manutenção e expansão no futuro.
+
+### Benefícios da Arquitetura Implementada
+- **Escalabilidade**: A arquitetura baseada no Delta Lake permite o aumento do volume de dados sem a necessidade de grandes modificações estruturais.
+- **Rastreabilidade**: A camada bronze garante que todos os dados originais sejam preservados, o que é crucial para auditoria e controle de qualidade.
+- **Flexibilidade no Consumo**: Com dados prontos na camada gold, é possível fornecer relatórios e dashboards customizados com alta performance, utilizando ferramentas de BI ou mesmo APIs que consumam diretamente os dados refinados.
+
 
 ## Imagens e Capturas de Tela
 Para maior clareza e facilitar a compreensão da configuração dos recursos, é recomendado incluir imagens e capturas de tela das seguintes partes:
