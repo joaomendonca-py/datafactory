@@ -1,0 +1,9 @@
+{
+	"name": "orquestracaodatabricks",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "dd30b64d-0e3f-4324-bad1-beceb8e9e405",
+		"tenantId": "2bb1e8f5-ec24-4094-ac24-319b36927910"
+	}
+}
