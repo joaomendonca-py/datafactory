@@ -82,6 +82,9 @@ Para maior clareza e facilitar a compreensão da configuração dos recursos, é
 ![pipeline02](https://github.com/user-attachments/assets/2f69602e-aa19-4d95-902c-5a5fb37224d9)
 ![pipeline01](https://github.com/user-attachments/assets/54c06a69-ceef-4ed6-8521-8347bbf044b9)
 ![AlertsRules](https://github.com/user-attachments/assets/8f284431-3b77-4bd5-8cf9-61e7f55e1a3d)
+![AlertsEmail2](https://github.com/user-attachments/assets/9f59d3cd-ba67-417e-be49-9ca23572a132)
+![AlertsEmail](https://github.com/user-attachments/assets/9f46ebe3-71dc-4330-86ac-b67b637d370d)
+
 ![Alerts](https://github.com/user-attachments/assets/c67d9326-27a3-49e5-8090-7616ec7d1086)
 
 
