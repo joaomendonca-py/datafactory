@@ -89,18 +89,18 @@ Este projeto é um exemplo de como utilizar os recursos do Azure para criar um p
 
 
 ## Imagens e Capturas de Tela
-Para maior clareza e facilitar a compreensão da configuração dos recursos, é recomendado incluir imagens e capturas de tela das seguintes partes:
-- Configuração do Azure Data Lake Storage (containers bronze, silver, gold).
+Para maior clareza e facilitar a compreensão da configuração dos recursos, inclui imagens e capturas de tela das seguintes partes:
+### - Configuração do Azure Data Lake Storage (containers bronze, silver, gold).
   ![datalake](https://github.com/user-attachments/assets/20e53abc-5e7a-4253-bd22-7a6996a6f674)
   ![silver](https://github.com/user-attachments/assets/13e3a1c5-e64b-477b-8b40-a7390231a7f3)
 ![gold](https://github.com/user-attachments/assets/f822015d-e550-4c9b-ba4d-cf7965294207)
 ![bronze](https://github.com/user-attachments/assets/675b4bed-94d7-468a-8fad-dc803ff0b2df)
 
-- Visão geral do Azure Databricks (notebooks e tabelas).
+### - Visão geral do Azure Databricks (notebooks e tabelas).
   ![schema-tables](https://github.com/user-attachments/assets/459b5db0-aba5-4e46-bc83-a402645c04bf)
 ![notebooks-databricks](https://github.com/user-attachments/assets/71be11a1-3460-415e-8e4d-59c406911e36)
 
-- Configuração do Azure Data Factory (pipelines, triggers, alertas).
+### - Configuração do Azure Data Factory (pipelines, triggers, alertas).
   ![datafactoryActivityLog](https://github.com/user-attachments/assets/27671bd2-6ef3-43c9-a69d-a1728e1a1346)
 
 ![triggerRuns](https://github.com/user-attachments/assets/dab559ac-c99e-41a4-a31b-adef2da5e629)
@@ -113,7 +113,6 @@ Para maior clareza e facilitar a compreensão da configuração dos recursos, é
 ![AlertsRules](https://github.com/user-attachments/assets/8f284431-3b77-4bd5-8cf9-61e7f55e1a3d)
 ![AlertsEmail2](https://github.com/user-attachments/assets/9f59d3cd-ba67-417e-be49-9ca23572a132)
 ![AlertsEmail](https://github.com/user-attachments/assets/9f46ebe3-71dc-4330-86ac-b67b637d370d)
-
 ![Alerts](https://github.com/user-attachments/assets/c67d9326-27a3-49e5-8090-7616ec7d1086)
 
 
