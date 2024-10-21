@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "orquestracaodatabricks"
 		},
-		"AzureDatabricksDeltaLake1_accessToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksDeltaLake1'"
-		},
 		"AzureDatabricks1_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksDeltaLake1'"
 		},
 		"API_breweries_properties_typeProperties_url": {
 			"type": "string",
@@ -50,11 +50,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"AzureDatabricksDeltaLake1_accessToken": {
-						"value": "[parameters('AzureDatabricksDeltaLake1_accessToken')]"
-					},
 					"AzureDatabricks1_accessToken": {
 						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"AzureDatabricksDeltaLake1_accessToken": {
+						"value": "[parameters('AzureDatabricksDeltaLake1_accessToken')]"
 					},
 					"API_breweries_properties_typeProperties_url": {
 						"value": "[parameters('API_breweries_properties_typeProperties_url')]"

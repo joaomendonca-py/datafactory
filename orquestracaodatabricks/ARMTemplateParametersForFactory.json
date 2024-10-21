@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "orquestracaodatabricks"
 		},
-		"AzureDatabricksDeltaLake1_accessToken": {
+		"AzureDatabricks1_accessToken": {
 			"value": ""
 		},
-		"AzureDatabricks1_accessToken": {
+		"AzureDatabricksDeltaLake1_accessToken": {
 			"value": ""
 		},
 		"API_breweries_properties_typeProperties_url": {
