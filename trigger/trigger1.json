@@ -14,10 +14,22 @@
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
-				"frequency": "Minute",
-				"interval": 10,
+				"frequency": "Week",
+				"interval": 1,
 				"startTime": "2024-10-20T08:53:00Z",
-				"timeZone": "UTC"
+				"endTime": "2024-10-22T17:49:41Z",
+				"timeZone": "UTC",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						23
+					],
+					"weekDays": [
+						"Sunday"
+					]
+				}
 			}
 		}
 	}
